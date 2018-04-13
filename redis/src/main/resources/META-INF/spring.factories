@@ -1,0 +1,9 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  cn.devcenter.framework.cache.redis.config.property.RedisClusterNodeProperties,\
+  cn.devcenter.framework.cache.redis.config.property.RedisClusterProperties,\
+  cn.devcenter.framework.cache.redis.config.property.RedisConnectionProperties,\
+  cn.devcenter.framework.cache.redis.config.property.RedisPoolProperties,\
+  cn.devcenter.framework.cache.redis.config.RedisCacheConfig,\
+  cn.devcenter.framework.cache.redis.config.RedisClusterConfig,\
+  cn.devcenter.framework.cache.redis.config.RedisPoolConfig,\
+  cn.devcenter.framework.cache.redis.config.RedisTemplateConfig
