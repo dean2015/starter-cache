@@ -18,12 +18,10 @@ public class SerializableValueSerializer<T> implements RedisSerializer<T> {
         ObjectOutputStream oos = null;
         ByteArrayOutputStream baos = null;
         try {
-            if (object != null) {
-                baos = new ByteArrayOutputStream();
-                oos = new ObjectOutputStream(baos);
-                oos.writeObject(object);
-                return baos.toByteArray();
-            }
+            baos = new ByteArrayOutputStream();
+            oos = new ObjectOutputStream(baos);
+            oos.writeObject(object);
+            return baos.toByteArray();
         } catch (IOException e) {
             if (log.isDebugEnabled()) {
                 log.debug("序列化对象IO错误", e);
@@ -44,7 +42,6 @@ public class SerializableValueSerializer<T> implements RedisSerializer<T> {
                 }
             }
         }
-        return null;
     }
 
     @Override
@@ -55,11 +52,9 @@ public class SerializableValueSerializer<T> implements RedisSerializer<T> {
         ByteArrayInputStream bais = null;
         ObjectInputStream ois = null;
         try {
-            if (bytes != null && bytes.length > 0) {
-                bais = new ByteArrayInputStream(bytes);
-                ois = new ObjectInputStream(bais);
-                return (T)ois.readObject();
-            }
+            bais = new ByteArrayInputStream(bytes);
+            ois = new ObjectInputStream(bais);
+            return (T) ois.readObject();
         } catch (Exception e) {
             if (log.isDebugEnabled()) {
                 log.debug("反序列化对象IO错误", e);
@@ -79,7 +74,6 @@ public class SerializableValueSerializer<T> implements RedisSerializer<T> {
                 }
             }
         }
-        return null;
     }
 
 }
