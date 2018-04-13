@@ -84,7 +84,7 @@ public class RedisCache<K, V> implements Cache<K, V> {
 
     @Override
     public Map<K, V> getAll(Set<? extends K> set) throws CacheException {
-        Map<K, V> resultMap = new HashMap<>();
+        Map<K, V> resultMap = new HashMap<>(1 << 4);
         set.forEach(key -> {
             try {
                 resultMap.put(key, get(key));
