@@ -37,11 +37,11 @@ public class RedisCache<K, V> implements Cache<K, V> {
     }
 
     @Override
-    public K put(K key, V value, Long expireIn) throws CacheException {
+    public K put(K key, V value, Long expireInSecond) throws CacheException {
         try {
-            redisTemplate.opsForValue().set(key, value, expireIn, TimeUnit.SECONDS);
+            redisTemplate.opsForValue().set(key, value, expireInSecond, TimeUnit.SECONDS);
         } catch (Exception e) {
-            String errorMessage = "Set key[" + key + "] - value[" + value + "] with timeout[" + expireIn + "] in error.";
+            String errorMessage = "Set key[" + key + "] - value[" + value + "] with timeout[" + expireInSecond + "] in error.";
             log.error(errorMessage, e);
             throw new CacheException(errorMessage, e);
         }
